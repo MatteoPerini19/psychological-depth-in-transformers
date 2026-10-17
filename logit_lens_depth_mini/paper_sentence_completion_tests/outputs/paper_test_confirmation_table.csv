@@ -1,0 +1,6 @@
+analysis,expected_result,models_positive,models_significant_positive,models_late_above_final,mean_late_minus_middle,median_late_minus_middle,result,margin_positive_models
+Original minimal stems: reflective > practical,Reflective verbs should gain relative support in late-intermediate layers.,5/6,4/6,6/6,2.3853511425485423,1.0725500553436134,mostly supported,
+Self-directed advantage,Self-directed stems should show a larger inner-life noun advantage than object-directed stems.,5/6,5/6,5/6,4.125907230624256,3.9943375438451767,mostly supported,
+Cova-derived verb/noun depth probe,Cova-derived depth-positive verbs/nouns should gain support over practical controls.,5/6,5/6,6/6,2.890369613351673,2.221524124372853,mostly supported,
+Abstraction gradient: verbs,Higher layers should shift probability mass from concrete/social candidates toward reflective/identity-related candidates.,3/6,2/6,,0.15764982419256424,0.1407399798432986,partial,4/6
+Abstraction gradient: nouns,Higher layers should shift probability mass from concrete/social candidates toward reflective/identity-related candidates.,3/6,0/6,,-0.05031538460475756,0.04228258767259456,partial,3/6

@@ -1,0 +1,83 @@
+{
+  "created_utc": "2026-07-05T21:19:26.949659+00:00",
+  "model": "phi4:latest",
+  "model_show": "Model\n    architecture        phi3      \n    parameters          14.7B     \n    context length      16384     \n    embedding length    5120      \n    quantization        Q4_K_M    \n\n  Capabilities\n    completion    \n\n  Parameters\n    stop    \"<|im_start|>\"    \n    stop    \"<|im_end|>\"      \n    stop    \"<|im_sep|>\"      \n\n  License\n    Microsoft.                              \n    Copyright (c) Microsoft Corporation.    \n    ...",
+  "n_words": 116,
+  "source_files": {
+    "simple_word_groups": "data/simple_word_groups.csv",
+    "self_object_word_groups": "data/self_object_word_groups.csv",
+    "cova_depth_completion_words_single_token": "data/cova_depth_completion_words_single_token.csv",
+    "abstraction_gradient_split_word_groups": "data/abstraction_gradient_split_word_groups.csv"
+  },
+  "cova_filter_for_analyzed_words": "lexical_type in ['verb', 'noun'] and word_group in ['depth', 'surface', 'neutral_control']",
+  "score_range": "1.0 to 10.0, half-point increments allowed",
+  "raw_score_columns": [
+    "phi4_latest_psychological_depth_raw",
+    "phi4_latest_self_reflective_relevance_raw",
+    "phi4_latest_existential_meaning_raw",
+    "phi4_latest_reflective_cognitive_process_raw",
+    "phi4_latest_personal_emotional_salience_raw",
+    "phi4_latest_concrete_observable_reversed_raw",
+    "phi4_latest_logistical_transactional_reversed_raw",
+    "phi4_latest_impersonal_neutral_reversed_raw"
+  ],
+  "reverse_keyed_raw_columns": [
+    "phi4_latest_concrete_observable_reversed_raw",
+    "phi4_latest_logistical_transactional_reversed_raw",
+    "phi4_latest_impersonal_neutral_reversed_raw"
+  ],
+  "recoding": "depth_keyed = 11 - reverse_keyed_raw",
+  "composite_column": "phi4_latest_psychological_depth_composite",
+  "composite_definition": "Mean of the five direct depth items and the three reverse-keyed items after recoding.",
+  "item_definitions": [
+    {
+      "column": "phi4_latest_psychological_depth_raw",
+      "prompt_key": "psychological_depth",
+      "reverse_keyed": false,
+      "definition": "High scores mean the word evokes psychological depth, inner life, self-reflection, or meaning-laden mental content."
+    },
+    {
+      "column": "phi4_latest_self_reflective_relevance_raw",
+      "prompt_key": "self_reflective_relevance",
+      "reverse_keyed": false,
+      "definition": "High scores mean the word is naturally relevant to thinking about oneself, one's motives, feelings, identity, or life direction."
+    },
+    {
+      "column": "phi4_latest_existential_meaning_raw",
+      "prompt_key": "existential_meaning",
+      "reverse_keyed": false,
+      "definition": "High scores mean the word evokes identity, purpose, values, mortality, life meaning, or existential significance."
+    },
+    {
+      "column": "phi4_latest_reflective_cognitive_process_raw",
+      "prompt_key": "reflective_cognitive_process",
+      "reverse_keyed": false,
+      "definition": "High scores mean the word suggests reflection, insight, understanding, reconsideration, or deeper interpretation."
+    },
+    {
+      "column": "phi4_latest_personal_emotional_salience_raw",
+      "prompt_key": "personal_emotional_salience",
+      "reverse_keyed": false,
+      "definition": "High scores mean the word feels personally or emotionally significant rather than emotionally flat."
+    },
+    {
+      "column": "phi4_latest_concrete_observable_reversed_raw",
+      "prompt_key": "concrete_observable",
+      "reverse_keyed": true,
+      "definition": "High raw scores mean the word is concrete, externally observable, practical, or surface-level. This item is reverse-keyed for psychological depth."
+    },
+    {
+      "column": "phi4_latest_logistical_transactional_reversed_raw",
+      "prompt_key": "logistical_transactional",
+      "reverse_keyed": true,
+      "definition": "High raw scores mean the word concerns mundane logistics, transactions, tools, objects, administration, or routine tasks. This item is reverse-keyed for psychological depth."
+    },
+    {
+      "column": "phi4_latest_impersonal_neutral_reversed_raw",
+      "prompt_key": "impersonal_neutral",
+      "reverse_keyed": true,
+      "definition": "High raw scores mean the word is impersonal, generic, emotionally neutral, or detached from inner experience. This item is reverse-keyed for psychological depth."
+    }
+  ],
+  "prompt_template": "You are rating isolated English candidate words for a post hoc semantic stimulus audit.\n\n        Important constraints:\n        - Rate only the ordinary meaning of the word and the neutral part-of-speech hint.\n        - Do not infer or use any experimental condition labels.\n        - Use scores from 1.0 to 10.0.\n        - Half-point values are allowed, for example 1.0, 1.5, 2.0, ..., 10.0.\n        - Use the full scale when justified.\n        - Return JSON only. Do not include markdown or explanations.\n\n        Rating items:\n        - psychological_depth: High scores mean the word evokes psychological depth, inner life, self-reflection, or meaning-laden mental content.\n- self_reflective_relevance: High scores mean the word is naturally relevant to thinking about oneself, one's motives, feelings, identity, or life direction.\n- existential_meaning: High scores mean the word evokes identity, purpose, values, mortality, life meaning, or existential significance.\n- reflective_cognitive_process: High scores mean the word suggests reflection, insight, understanding, reconsideration, or deeper interpretation.\n- personal_emotional_salience: High scores mean the word feels personally or emotionally significant rather than emotionally flat.\n- concrete_observable: High raw scores mean the word is concrete, externally observable, practical, or surface-level. This item is reverse-keyed for psychological depth.\n- logistical_transactional: High raw scores mean the word concerns mundane logistics, transactions, tools, objects, administration, or routine tasks. This item is reverse-keyed for psychological depth.\n- impersonal_neutral: High raw scores mean the word is impersonal, generic, emotionally neutral, or detached from inner experience. This item is reverse-keyed for psychological depth.\n\n        Return exactly this JSON shape:\n        {\n          \"ratings\": [\n            {\n              \"word\": \"example\",\n              \"psychological_depth\": 1.0,\n              \"self_reflective_relevance\": 1.0,\n              \"existential_meaning\": 1.0,\n              \"reflective_cognitive_process\": 1.0,\n              \"personal_emotional_salience\": 1.0,\n              \"concrete_observable\": 10.0,\n              \"logistical_transactional\": 10.0,\n              \"impersonal_neutral\": 10.0\n            }\n          ]\n        }\n\n        Words to rate:\n        [\n  {\n    \"word\": \"example\",\n    \"part_of_speech_hint\": \"noun\"\n  }\n]"
+}

@@ -1,0 +1,15 @@
+"measure","value"
+"chisq",743.725482453037
+"df",40
+"pvalue",0
+"cfi",0.844837680105782
+"tli",0.782772752148094
+"rmsea",0.158988980051346
+"srmr",0.157619682456778
+"cfi.robust",NA
+"tli.robust",NA
+"rmsea.robust",NA
+"srmr_within",0.12856948391274
+"srmr_between",0.0290501985440382
+"aic",16507.5016599064
+"bic",16689.3156463198

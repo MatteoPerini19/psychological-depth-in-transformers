@@ -1,0 +1,7 @@
+stem_id,name,possessive,stem_template,stem,lexical_type,syntactic_frame
+verb_john_wants_to,John,,wants_to,John wants to,verb,verb_after_to
+verb_mary_hopes_to,Mary,,hopes_to,Mary hopes to,verb,verb_after_to
+verb_alex_tries_to,Alex,,tries_to,Alex tries to,verb,verb_after_to
+noun_john_thinks_about_his,John,his,thinks_about_possessive,John thinks about his,noun,noun_after_possessive
+noun_mary_reflects_on_her,Mary,her,reflects_on_possessive,Mary reflects on her,noun,noun_after_possessive
+noun_alex_considers_his,Alex,his,considers_possessive,Alex considers his,noun,noun_after_possessive

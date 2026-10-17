@@ -1,0 +1,37 @@
+model_name,model_label,condition_id,condition_label,candidate_set_version,n_stems,middle_margin,late_margin,final_margin,late_minus_middle,survives_matching
+gpt2,gpt2,reflective_vs_practical_verbs,Reflective vs practical verbs,all_candidates,42,-0.35381684187311857,0.6233736692617337,-0.3554028712567829,0.9771905111348522,False
+gpt2,gpt2,reflective_vs_practical_verbs,Reflective vs practical verbs,lexically_matched,42,1.8322136940412401,1.8634096043977133,0.28558655579884845,0.031195910356473178,True
+gpt2,gpt2,inner_life_vs_object_nouns,Inner-life vs object nouns,all_candidates,36,1.9190243413063905,4.411883891113878,0.32712283068233067,2.492859549807488,False
+gpt2,gpt2,inner_life_vs_object_nouns,Inner-life vs object nouns,lexically_matched,36,1.902264060284425,3.8141193115605145,0.6139907969368829,1.9118552512760896,True
+gpt2,gpt2,cova_verb_noun_depth_vs_control,Cova-derived verbs/nouns,all_candidates,66,0.9991914341878851,2.988229569498358,1.4656489003788342,1.9890381353104727,False
+gpt2,gpt2,cova_verb_noun_depth_vs_control,Cova-derived verbs/nouns,lexically_matched,66,-1.3463870246556517,0.2086627929217381,0.10843294994397597,1.55504981757739,True
+distilgpt2,distilgpt2,reflective_vs_practical_verbs,Reflective vs practical verbs,all_candidates,42,-0.10367856245665323,0.053212110219257217,-0.31469549593471347,0.15689067267591045,False
+distilgpt2,distilgpt2,reflective_vs_practical_verbs,Reflective vs practical verbs,lexically_matched,42,0.3568752265834649,0.5758733858930922,0.14226229417891728,0.2189981593096274,True
+distilgpt2,distilgpt2,inner_life_vs_object_nouns,Inner-life vs object nouns,all_candidates,36,3.6164945289621957,4.033484665961522,0.3637489842043983,0.41699013699932647,False
+distilgpt2,distilgpt2,inner_life_vs_object_nouns,Inner-life vs object nouns,lexically_matched,36,3.6331750316053837,3.7853508304752825,0.6760176006290648,0.15217579886989874,True
+distilgpt2,distilgpt2,cova_verb_noun_depth_vs_control,Cova-derived verbs/nouns,all_candidates,66,1.868353346256878,2.8377352070458457,1.6401318420063367,0.969381860788968,False
+distilgpt2,distilgpt2,cova_verb_noun_depth_vs_control,Cova-derived verbs/nouns,lexically_matched,66,-2.1287112135870494,-1.7504073765294654,0.19703870063478296,0.378303837057584,True
+EleutherAI/pythia-14m,pythia-14m,reflective_vs_practical_verbs,Reflective vs practical verbs,all_candidates,42,1.9590335573468889,1.3373747326078869,-0.15505254836309523,-0.621658824739002,False
+EleutherAI/pythia-14m,pythia-14m,reflective_vs_practical_verbs,Reflective vs practical verbs,lexically_matched,42,3.03095052923475,2.228854224795387,0.6243344261532738,-0.802096304439363,False
+EleutherAI/pythia-14m,pythia-14m,inner_life_vs_object_nouns,Inner-life vs object nouns,all_candidates,36,3.4644902547200522,2.188226487901476,2.8682454427083335,-1.2762637668185763,False
+EleutherAI/pythia-14m,pythia-14m,inner_life_vs_object_nouns,Inner-life vs object nouns,lexically_matched,36,3.553292704953088,2.4175279405381946,1.2012108696831598,-1.1357647644148932,False
+EleutherAI/pythia-14m,pythia-14m,cova_verb_noun_depth_vs_control,Cova-derived verbs/nouns,all_candidates,66,3.664625312342788,3.1636950174967446,1.857076933889678,-0.5009302948460435,False
+EleutherAI/pythia-14m,pythia-14m,cova_verb_noun_depth_vs_control,Cova-derived verbs/nouns,lexically_matched,66,-0.510559284325802,0.7576697378447561,-0.11810487689393939,1.268229022170558,True
+EleutherAI/pythia-70m,pythia-70m,reflective_vs_practical_verbs,Reflective vs practical verbs,all_candidates,42,1.7611031986418224,2.9260705822990056,-0.5883091517857143,1.164967383657183,False
+EleutherAI/pythia-70m,pythia-70m,reflective_vs_practical_verbs,Reflective vs practical verbs,lexically_matched,42,2.671804257801601,1.8192183460508073,-0.28474353608630953,-0.8525859117507935,False
+EleutherAI/pythia-70m,pythia-70m,inner_life_vs_object_nouns,Inner-life vs object nouns,all_candidates,36,9.55403740538491,12.82208291027281,0.64154052734375,3.268045504887899,False
+EleutherAI/pythia-70m,pythia-70m,inner_life_vs_object_nouns,Inner-life vs object nouns,lexically_matched,36,9.502955059210459,11.76066995329327,1.1593017578125,2.2577148940828113,True
+EleutherAI/pythia-70m,pythia-70m,cova_verb_noun_depth_vs_control,Cova-derived verbs/nouns,all_candidates,66,2.8938249096725928,7.177215019861857,1.5101207386363635,4.283390110189265,False
+EleutherAI/pythia-70m,pythia-70m,cova_verb_noun_depth_vs_control,Cova-derived verbs/nouns,lexically_matched,66,-1.2758857625903506,2.3994750795942363,0.19301165956439395,3.675360842184587,True
+EleutherAI/pythia-70m-deduped,pythia-70m-deduped,reflective_vs_practical_verbs,Reflective vs practical verbs,all_candidates,42,-5.361267640477135,5.130728131248837,-0.048084077380952384,10.491995771725973,False
+EleutherAI/pythia-70m-deduped,pythia-70m-deduped,reflective_vs_practical_verbs,Reflective vs practical verbs,lexically_matched,42,-5.868553996086121,3.76618382476625,0.5405680338541666,9.63473782085237,True
+EleutherAI/pythia-70m-deduped,pythia-70m-deduped,inner_life_vs_object_nouns,Inner-life vs object nouns,all_candidates,36,4.975469748179118,11.972856707043118,0.1792670355902778,6.997386958864,False
+EleutherAI/pythia-70m-deduped,pythia-70m-deduped,inner_life_vs_object_nouns,Inner-life vs object nouns,lexically_matched,36,4.946593251493242,10.665535827477774,-0.198974609375,5.718942575984531,True
+EleutherAI/pythia-70m-deduped,pythia-70m-deduped,cova_verb_noun_depth_vs_control,Cova-derived verbs/nouns,all_candidates,66,0.5902090181003917,8.737639047882773,1.8792317708333333,8.147430029782383,False
+EleutherAI/pythia-70m-deduped,pythia-70m-deduped,cova_verb_noun_depth_vs_control,Cova-derived verbs/nouns,lexically_matched,66,-6.557191317731684,1.4550387931592537,-0.18879838423295456,8.012230110890938,True
+EleutherAI/pythia-160m,pythia-160m,reflective_vs_practical_verbs,Reflective vs practical verbs,all_candidates,42,-1.9468933258737837,0.18935139973958334,-0.5092424665178571,2.136244725613367,False
+EleutherAI/pythia-160m,pythia-160m,reflective_vs_practical_verbs,Reflective vs practical verbs,lexically_matched,42,-1.1227436519804455,0.5156931735220409,-0.006981259300595238,1.6384368255024864,True
+EleutherAI/pythia-160m,pythia-160m,inner_life_vs_object_nouns,Inner-life vs object nouns,all_candidates,36,6.119829346736272,10.333114451832241,1.4593302408854167,4.213285105095969,False
+EleutherAI/pythia-160m,pythia-160m,inner_life_vs_object_nouns,Inner-life vs object nouns,lexically_matched,36,3.9585481120480432,9.65683893362681,1.5295477973090277,5.698290821578768,True
+EleutherAI/pythia-160m,pythia-160m,cova_verb_noun_depth_vs_control,Cova-derived verbs/nouns,all_candidates,66,4.340619927102869,6.786978037068338,1.4012784090909092,2.4463581099654688,False
+EleutherAI/pythia-160m,pythia-160m,cova_verb_noun_depth_vs_control,Cova-derived verbs/nouns,lexically_matched,66,0.9541921182112261,2.537514381336443,0.07521750710227272,1.5833222631252173,True

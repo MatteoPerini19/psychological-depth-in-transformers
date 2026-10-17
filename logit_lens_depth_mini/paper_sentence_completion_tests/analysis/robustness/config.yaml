@@ -1,0 +1,46 @@
+project_name: psychological_depth_sentence_completion_robustness
+seed: 20260625
+permutation_seed: 20260626
+bootstrap_seed: 20260627
+patching_seed: 20260628
+models:
+  - gpt2
+  - distilgpt2
+  - EleutherAI/pythia-14m
+  - EleutherAI/pythia-70m
+  - EleutherAI/pythia-70m-deduped
+  - EleutherAI/pythia-160m
+middle_min_relative: 0.25
+middle_max_relative: 0.50
+late_min_relative: 0.65
+permutations: 10000
+candidate_bootstrap_resamples: 5000
+peak_bootstrap_resamples: 5000
+patching_bootstrap_resamples: 5000
+primary_probe: self_object_advantage
+probe_names:
+  - reflective_practical
+  - self_object
+  - self_object_advantage
+  - cova_verb_noun
+  - abstraction_gradient
+core_inner_life_words:
+  - life
+  - values
+  - identity
+  - future
+  - feelings
+  - purpose
+core_object_words:
+  - phone
+  - schedule
+  - order
+  - room
+  - email
+  - list
+paths:
+  data_dir: data
+  existing_outputs_dir: outputs
+  robustness_results_dir: results/robustness
+  robustness_figures_dir: figures/robustness
+  reports_dir: reports

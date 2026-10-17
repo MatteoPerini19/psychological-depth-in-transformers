@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code or these materials, please cite this repository and the accompanying manuscript when available."
+title: "Psychological Depth in Network Depth: Late-Intermediate Layers Support Self-Directed Inner-Life Sentence Completions"
+type: software
+authors:
+  - family-names: Perini
+    given-names: Matteo
+abstract: "Code, sentence-completion materials, saved model outputs, and robustness analyses for a study of psychological depth and layer depth in small autoregressive language models."
+repository-code: "https://github.com/MatteoPerini19/psychological-depth-in-transformers"
+url: "https://github.com/MatteoPerini19/psychological-depth-in-transformers"
+license: MIT

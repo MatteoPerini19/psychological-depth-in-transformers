@@ -1,0 +1,10 @@
+probe_name,estimator,estimate,ci_low,ci_high,n_models,n_units,warning
+self_object_advantage,naive_grand_mean,4.125907230624256,,,6,36,
+self_object_advantage,random_model_intercept_mixedlm,4.125907230624263,0.46252467443101697,7.789289786817508,6,36,
+self_object_advantage,cluster_bootstrap_models_and_units,4.125907230624256,0.9081808459555895,7.668706756025222,6,36,
+reflective_practical,naive_grand_mean,2.385351142548542,,,6,42,
+reflective_practical,random_model_intercept_mixedlm,2.385351142548397,-0.8802672756200729,5.650969560716867,6,42,
+reflective_practical,cluster_bootstrap_models_and_units,2.385351142548542,0.20197849713939464,5.827530264953337,6,42,
+cova_verb_noun,naive_grand_mean,2.890369613351673,,,6,66,
+cova_verb_noun,random_model_intercept_mixedlm,2.890369613351498,0.47133935156828244,5.309399875134713,6,66,Random effects covariance is singular
+cova_verb_noun,cluster_bootstrap_models_and_units,2.890369613351673,0.8698398799083312,5.276281391388542,6,66,

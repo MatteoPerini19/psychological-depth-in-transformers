@@ -1,0 +1,22 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.quarto/
+.Rhistory
+.RData
+.Rproj.user/
+.env
+.env.*
+models/
+checkpoints/
+*.docx
+*.log
+logit_lens_depth_mini/paper_sentence_completion_tests/Paper Sentence Completion Test Package Summary.md
+
+.R-library/
+renv/library/
+renv/staging/

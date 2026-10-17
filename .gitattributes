@@ -1,0 +1,2 @@
+# Preserve file bytes for checksum comparisons
+* -text

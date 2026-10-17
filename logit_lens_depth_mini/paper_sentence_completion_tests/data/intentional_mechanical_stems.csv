@@ -1,0 +1,73 @@
+stem_id,stem_family,name,stem_template,stem
+john_wants_to,intentional,John,wants to,John wants to
+mary_wants_to,intentional,Mary,wants to,Mary wants to
+alex_wants_to,intentional,Alex,wants to,Alex wants to
+sarah_wants_to,intentional,Sarah,wants to,Sarah wants to
+david_wants_to,intentional,David,wants to,David wants to
+emma_wants_to,intentional,Emma,wants to,Emma wants to
+john_hopes_to,intentional,John,hopes to,John hopes to
+mary_hopes_to,intentional,Mary,hopes to,Mary hopes to
+alex_hopes_to,intentional,Alex,hopes to,Alex hopes to
+sarah_hopes_to,intentional,Sarah,hopes to,Sarah hopes to
+david_hopes_to,intentional,David,hopes to,David hopes to
+emma_hopes_to,intentional,Emma,hopes to,Emma hopes to
+john_decided_to,intentional,John,decided to,John decided to
+mary_decided_to,intentional,Mary,decided to,Mary decided to
+alex_decided_to,intentional,Alex,decided to,Alex decided to
+sarah_decided_to,intentional,Sarah,decided to,Sarah decided to
+david_decided_to,intentional,David,decided to,David decided to
+emma_decided_to,intentional,Emma,decided to,Emma decided to
+john_plans_to,intentional,John,plans to,John plans to
+mary_plans_to,intentional,Mary,plans to,Mary plans to
+alex_plans_to,intentional,Alex,plans to,Alex plans to
+sarah_plans_to,intentional,Sarah,plans to,Sarah plans to
+david_plans_to,intentional,David,plans to,David plans to
+emma_plans_to,intentional,Emma,plans to,Emma plans to
+john_tries_to,intentional,John,tries to,John tries to
+mary_tries_to,intentional,Mary,tries to,Mary tries to
+alex_tries_to,intentional,Alex,tries to,Alex tries to
+sarah_tries_to,intentional,Sarah,tries to,Sarah tries to
+david_tries_to,intentional,David,tries to,David tries to
+emma_tries_to,intentional,Emma,tries to,Emma tries to
+john_intends_to,intentional,John,intends to,John intends to
+mary_intends_to,intentional,Mary,intends to,Mary intends to
+alex_intends_to,intentional,Alex,intends to,Alex intends to
+sarah_intends_to,intentional,Sarah,intends to,Sarah intends to
+david_intends_to,intentional,David,intends to,David intends to
+emma_intends_to,intentional,Emma,intends to,Emma intends to
+john_is_going_to,mechanical,John,is going to,John is going to
+mary_is_going_to,mechanical,Mary,is going to,Mary is going to
+alex_is_going_to,mechanical,Alex,is going to,Alex is going to
+sarah_is_going_to,mechanical,Sarah,is going to,Sarah is going to
+david_is_going_to,mechanical,David,is going to,David is going to
+emma_is_going_to,mechanical,Emma,is going to,Emma is going to
+john_has_to,mechanical,John,has to,John has to
+mary_has_to,mechanical,Mary,has to,Mary has to
+alex_has_to,mechanical,Alex,has to,Alex has to
+sarah_has_to,mechanical,Sarah,has to,Sarah has to
+david_has_to,mechanical,David,has to,David has to
+emma_has_to,mechanical,Emma,has to,Emma has to
+john_will,mechanical,John,will,John will
+mary_will,mechanical,Mary,will,Mary will
+alex_will,mechanical,Alex,will,Alex will
+sarah_will,mechanical,Sarah,will,Sarah will
+david_will,mechanical,David,will,David will
+emma_will,mechanical,Emma,will,Emma will
+john_must,mechanical,John,must,John must
+mary_must,mechanical,Mary,must,Mary must
+alex_must,mechanical,Alex,must,Alex must
+sarah_must,mechanical,Sarah,must,Sarah must
+david_must,mechanical,David,must,David must
+emma_must,mechanical,Emma,must,Emma must
+john_is_expected_to,mechanical,John,is expected to,John is expected to
+mary_is_expected_to,mechanical,Mary,is expected to,Mary is expected to
+alex_is_expected_to,mechanical,Alex,is expected to,Alex is expected to
+sarah_is_expected_to,mechanical,Sarah,is expected to,Sarah is expected to
+david_is_expected_to,mechanical,David,is expected to,David is expected to
+emma_is_expected_to,mechanical,Emma,is expected to,Emma is expected to
+john_is_supposed_to,mechanical,John,is supposed to,John is supposed to
+mary_is_supposed_to,mechanical,Mary,is supposed to,Mary is supposed to
+alex_is_supposed_to,mechanical,Alex,is supposed to,Alex is supposed to
+sarah_is_supposed_to,mechanical,Sarah,is supposed to,Sarah is supposed to
+david_is_supposed_to,mechanical,David,is supposed to,David is supposed to
+emma_is_supposed_to,mechanical,Emma,is supposed to,Emma is supposed to

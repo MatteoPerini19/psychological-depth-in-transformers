@@ -1,0 +1,552 @@
+---
+title: "Post Hoc LLM Semantic Stimulus Audit"
+subtitle: "Local-model ratings of psychological-depth word stimuli"
+date: "2026-07-06"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: cosmo
+    code-fold: false
+    code-tools: true
+    embed-resources: true
+    smooth-scroll: true
+execute:
+  echo: true
+  message: false
+  warning: false
+params:
+  refit_models: false
+---
+
+## Overview
+
+This report documents a post hoc semantic stimulus audit of the word stimuli used in the sentence-completion analyses. Six local language models rated each isolated word on blinded semantic items indexing psychological depth, self-reflective relevance, existential meaning, reflective cognition, personal or emotional salience, and reverse-keyed surface-level qualities.
+
+The purpose of the audit is limited. It asks whether the target word sets are rated as semantically deeper than their comparison word sets by local LLM judges. It should be interpreted as post hoc stimulus-level semantic evidence rather than as a claim that isolated-word ratings exhaust the construct.
+
+```{r}
+#| label: setup
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(ggplot2)
+  library(knitr)
+  library(readr)
+  library(scales)
+  library(stringr)
+  library(tidyr)
+})
+
+report_root <- normalizePath("..", mustWork = TRUE)
+path_here <- function(...) file.path(report_root, ...)
+
+fmt_num <- function(x, digits = 3) {
+  ifelse(is.na(x), NA_character_, formatC(x, format = "f", digits = digits))
+}
+
+fmt_p <- function(x) {
+  ifelse(
+    is.na(x),
+    NA_character_,
+    ifelse(x < .001, "< .001", sub("^0", "", formatC(x, format = "f", digits = 3)))
+  )
+}
+
+fmt_df <- function(x) {
+  ifelse(
+    is.na(x),
+    NA_character_,
+    ifelse(abs(x - round(x)) < .001, formatC(x, format = "f", digits = 0), formatC(x, format = "f", digits = 2))
+  )
+}
+
+pretty_check <- function(x) {
+  dplyr::recode(
+    x,
+    reflective_vs_practical_words = "Reflective vs practical",
+    inner_life_vs_object_words = "Inner-life vs object",
+    cova_depth_vs_control_words = "Cova depth vs control",
+    clean_overall_depth_vs_control_words = "Overall depth vs control",
+    abstraction_gradient_ordering = "Abstraction gradient",
+    .default = x
+  )
+}
+
+pretty_item <- function(x) {
+  dplyr::recode(
+    x,
+    y_psychological_depth = "Psychological depth",
+    y_self_reflective_relevance = "Self-reflective relevance",
+    y_existential_meaning = "Existential meaning",
+    y_reflective_cognitive_process = "Reflective cognitive process",
+    y_personal_emotional_salience = "Personal/emotional salience",
+    y_concrete_observable_depth_keyed = "Concrete/observable, depth-keyed",
+    y_logistical_transactional_depth_keyed = "Logistical/transactional, depth-keyed",
+    y_impersonal_neutral_depth_keyed = "Impersonal/neutral, depth-keyed",
+    .default = x
+  )
+}
+
+theme_set(theme_minimal(base_family = "Times New Roman", base_size = 12))
+```
+
+```{r}
+#| label: optional-regeneration
+if (isTRUE(params$refit_models)) {
+  system2(
+    "Rscript",
+    path_here("scripts", "validate_all_local_llm_word_depth_audit_lme4.R")
+  )
+  system2(
+    "Rscript",
+    path_here("scripts", "reliability_and_multilevel_cfa_local_llm_depth_items.R")
+  )
+}
+```
+
+## Data And Reproducibility
+
+The report reads the saved audit outputs included in this folder. The combined long-format dataset has one row per word-by-model rating.
+
+```{r}
+#| label: load-saved-outputs
+ratings <- read_csv(
+  path_here("outputs", "ratings", "all_local_llm_word_depth_scores_long.csv"),
+  show_col_types = FALSE
+)
+
+fixed_effects <- read_csv(
+  path_here("outputs", "statistics", "all_local_llm_lme4_fixed_effects.csv"),
+  show_col_types = FALSE
+)
+
+per_model_binary <- read_csv(
+  path_here("outputs", "statistics", "all_local_llm_per_model_binary_means.csv"),
+  show_col_types = FALSE
+)
+
+per_model_abstraction <- read_csv(
+  path_here("outputs", "statistics", "all_local_llm_per_model_abstraction_means.csv"),
+  show_col_types = FALSE
+)
+
+reliability_overall <- read_csv(
+  path_here("outputs", "statistics", "all_local_llm_depth_items_reliability_overall.csv"),
+  show_col_types = FALSE
+)
+
+reliability_by_model <- read_csv(
+  path_here("outputs", "statistics", "all_local_llm_depth_items_reliability_by_model.csv"),
+  show_col_types = FALSE
+)
+
+cfa_fit_full <- read_csv(
+  path_here("outputs", "statistics", "all_local_llm_depth_items_multilevel_cfa_fit_measures.csv"),
+  show_col_types = FALSE
+)
+
+cfa_fit_direct <- read_csv(
+  path_here("outputs", "statistics", "all_local_llm_depth_items_direct_only_multilevel_cfa_fit_measures.csv"),
+  show_col_types = FALSE
+)
+
+cfa_loadings_direct <- read_csv(
+  path_here("outputs", "statistics", "all_local_llm_depth_items_direct_only_multilevel_cfa_standardized_loadings.csv"),
+  show_col_types = FALSE
+)
+
+cfa_icc <- read_csv(
+  path_here("outputs", "statistics", "all_local_llm_depth_items_multilevel_cfa_icc.csv"),
+  show_col_types = FALSE
+)
+```
+
+```{r}
+#| label: data-overview
+overview <- tibble::tibble(
+  Quantity = c(
+    "Word-by-model ratings",
+    "Unique words",
+    "Local LLM judges",
+    "Source word-list files",
+    "Model-specific wide score files"
+  ),
+  Value = c(
+    nrow(ratings),
+    dplyr::n_distinct(ratings$word),
+    dplyr::n_distinct(ratings$rating_model),
+    length(list.files(path_here("data", "source_word_lists"), pattern = "\\.csv$")),
+    length(list.files(path_here("outputs", "ratings"), pattern = "_word_depth_scores_wide\\.csv$")) - 1
+  )
+)
+
+knitr::kable(overview, caption = "Audit dataset overview.")
+```
+
+```{r}
+#| label: local-models
+model_table <- ratings |>
+  distinct(rating_model, model_prefix) |>
+  arrange(rating_model)
+
+knitr::kable(model_table, caption = "Local LLMs included in the audit.")
+```
+
+## Scoring Items
+
+The model prompts were blinded to the experimental group labels. Source metadata were joined back only after scoring. Each model rated each word on 1-10 scales with half-points allowed. Three surface-level items were reverse-keyed before computing the composite.
+
+```{r}
+#| label: scoring-items
+item_table <- tibble::tribble(
+  ~Item, ~Direction, ~Included_in_composite,
+  "Psychological depth", "Direct", "Yes",
+  "Self-reflective relevance", "Direct", "Yes",
+  "Existential meaning", "Direct", "Yes",
+  "Reflective cognitive process", "Direct", "Yes",
+  "Personal/emotional salience", "Direct", "Yes",
+  "Concrete/observable", "Reverse-keyed", "Yes",
+  "Logistical/transactional", "Reverse-keyed", "Yes",
+  "Impersonal/neutral", "Reverse-keyed", "Yes"
+)
+
+knitr::kable(item_table, caption = "Semantic rating items used in the local-model audit.")
+```
+
+The composite used below is `psychological_depth_composite`, computed after depth-keying the reverse items.
+
+## Mixed-Effects Validation
+
+The core validation question was whether depth-related words received higher LLM-rated psychological-depth scores than their matched comparison words. Following the mixed-model decision rule used for this project, fixed-effect p values were computed as Type 3 conditional F-tests with Kenward-Roger approximation through `afex` and `pbkrtest`. Estimates, confidence intervals, and slope/contrast degrees of freedom were obtained with `emmeans` using Kenward-Roger degrees of freedom.
+
+For each binary contrast, the model was:
+
+```{r}
+#| label: binary-model-formula
+#| eval: false
+fit <- afex::mixed(
+  psychological_depth_composite ~ depth_related_factor +
+    (1 + depth_related_factor || rating_model) +
+    (1 | word),
+  data = dat,
+  type = 3,
+  method = "KR",
+  test_intercept = TRUE,
+  expand_re = TRUE,
+  check_contrasts = FALSE,
+  control = lme4::lmerControl(
+    optimizer = "bobyqa",
+    calc.derivs = TRUE,
+    optCtrl = list(maxfun = 1e6)
+  )
+)
+
+anova(fit)
+
+emm <- emmeans::emmeans(
+  fit$full_model,
+  ~ depth_related_factor,
+  lmer.df = "kenward-roger"
+)
+contrast(emm, "trt.vs.ctrl", ref = "control")
+```
+
+For the abstraction-gradient analysis, the model was:
+
+```{r}
+#| label: gradient-model-formula
+#| eval: false
+fit <- afex::mixed(
+  psychological_depth_composite ~ abstraction_max_level +
+    (1 + abstraction_max_level || rating_model) +
+    (1 | word),
+  data = dat,
+  type = 3,
+  method = "KR",
+  test_intercept = TRUE,
+  expand_re = TRUE,
+  check_contrasts = FALSE,
+  control = lme4::lmerControl(
+    optimizer = "bobyqa",
+    calc.derivs = TRUE,
+    optCtrl = list(maxfun = 1e6)
+  )
+)
+
+anova(fit)
+
+emmeans::emtrends(
+  fit$full_model,
+  ~ 1,
+  var = "abstraction_max_level",
+  lmer.df = "kenward-roger"
+)
+```
+
+```{r}
+#| label: lme4-fixed-effects-table
+fixed_effects_table <- fixed_effects |>
+  mutate(
+    Analysis = pretty_check(check),
+    Estimate = round(estimate, 3),
+    SE = round(std_error, 3),
+    `95% CI` = paste0("[", fmt_num(ci_lower_kr), ", ", fmt_num(ci_upper_kr), "]"),
+    `KR F test` = paste0(
+      "F(", fmt_df(num_df_kr), ", ", fmt_df(den_df_kr), ") = ",
+      fmt_num(f_value_kr, digits = 2)
+    ),
+    `p value` = fmt_p(p_value_kr),
+    `Observations` = n_obs,
+    `Words` = n_words,
+    `Models` = n_models,
+    `Singular fit` = singular
+  ) |>
+  select(Analysis, Estimate, SE, `95% CI`, `KR F test`, `p value`, Observations, Words, Models, `Singular fit`)
+
+knitr::kable(
+  fixed_effects_table,
+  caption = "Fixed effects from mixed-effects validation models."
+)
+```
+
+All focal fixed-effect estimates were positive. The binary contrasts indicate that depth-related words were rated as more psychologically deep than comparison words across the local-model panel. The abstraction-gradient estimate indicates higher composite ratings at higher abstraction levels.
+
+```{r}
+#| label: lme4-fixed-effects-plot
+#| fig-width: 8
+#| fig-height: 4.8
+fixed_effects |>
+  mutate(
+    Analysis = factor(pretty_check(check), levels = rev(pretty_check(check))),
+    ci_low = ci_lower_kr,
+    ci_high = ci_upper_kr
+  ) |>
+  ggplot(aes(x = estimate, y = Analysis)) +
+  geom_vline(xintercept = 0, linewidth = 0.35, linetype = "dashed") +
+  geom_pointrange(aes(xmin = ci_low, xmax = ci_high), linewidth = 0.55) +
+  labs(
+    x = "Fixed-effect estimate",
+    y = NULL,
+    title = "Estimated semantic-depth differences",
+    subtitle = "Positive values indicate higher local-LLM depth ratings for depth-related or more abstract words"
+  )
+```
+
+```{r}
+#| label: per-model-binary-differences
+#| fig-width: 9
+#| fig-height: 6
+per_model_binary |>
+  mutate(
+    Analysis = pretty_check(check),
+    rating_model = str_replace_all(rating_model, "_", " ")
+  ) |>
+  ggplot(aes(
+    x = difference_depth_minus_control,
+    y = reorder(rating_model, difference_depth_minus_control)
+  )) +
+  geom_vline(xintercept = 0, linewidth = 0.35, linetype = "dashed") +
+  geom_point(size = 2.2) +
+  facet_wrap(~Analysis, scales = "free_x") +
+  labs(
+    x = "Mean depth-related minus control difference",
+    y = "Local LLM",
+    title = "Per-model depth/control differences"
+  )
+```
+
+## Abstraction Gradient
+
+The abstraction-gradient stimulus set had three ordered levels. The plotted means show the average LLM-rated psychological-depth composite by local model and abstraction level.
+
+```{r}
+#| label: abstraction-gradient-plot
+#| fig-width: 8
+#| fig-height: 5
+per_model_abstraction |>
+  mutate(rating_model = str_replace_all(rating_model, "_", " ")) |>
+  ggplot(aes(
+    x = abstraction_max_level,
+    y = psychological_depth_composite,
+    color = rating_model,
+    group = rating_model
+  )) +
+  geom_line(linewidth = 0.65) +
+  geom_point(size = 2) +
+  scale_x_continuous(breaks = sort(unique(per_model_abstraction$abstraction_max_level))) +
+  scale_color_brewer(palette = "Dark2") +
+  labs(
+    x = "Abstraction level",
+    y = "Mean psychological-depth composite",
+    color = "Local LLM",
+    title = "Abstraction-gradient ratings by model"
+  )
+```
+
+## Reliability
+
+The semantic rating battery showed high internal consistency both at the word-by-model level and after averaging ratings across models for each word.
+
+```{r}
+#| label: reliability-overall-table
+reliability_overall |>
+  transmute(
+    Analysis = analysis,
+    `Observations` = n_observations,
+    `Words` = n_words,
+    `Models` = n_models,
+    `Cronbach alpha` = round(cronbach_alpha, 3),
+    `McDonald omega total` = round(mcdonald_omega_total, 3),
+    `McDonald omega hierarchical` = round(mcdonald_omega_hierarchical, 3)
+  ) |>
+  knitr::kable(caption = "Overall reliability estimates.")
+```
+
+```{r}
+#| label: reliability-by-model-table
+reliability_by_model |>
+  transmute(
+    `Local LLM` = rating_model,
+    `Words` = n_words,
+    `Cronbach alpha` = round(cronbach_alpha, 3),
+    `McDonald omega total` = round(mcdonald_omega_total, 3),
+    `McDonald omega hierarchical` = round(mcdonald_omega_hierarchical, 3)
+  ) |>
+  arrange(`Local LLM`) |>
+  knitr::kable(caption = "Reliability estimates by local model.")
+```
+
+## Multilevel CFA
+
+Because the 696 rows are not independent observations, the CFA used `word` as the clustering variable. The model decomposed the measurement structure into within-word and between-word components:
+
+```{r}
+#| label: multilevel-cfa-formula
+#| eval: false
+level: 1
+  within_depth =~ y_psychological_depth +
+    y_self_reflective_relevance +
+    y_existential_meaning +
+    y_reflective_cognitive_process +
+    y_personal_emotional_salience +
+    y_concrete_observable_depth_keyed +
+    y_logistical_transactional_depth_keyed +
+    y_impersonal_neutral_depth_keyed
+
+level: 2
+  between_depth =~ y_psychological_depth +
+    y_self_reflective_relevance +
+    y_existential_meaning +
+    y_reflective_cognitive_process +
+    y_personal_emotional_salience +
+    y_concrete_observable_depth_keyed +
+    y_logistical_transactional_depth_keyed +
+    y_impersonal_neutral_depth_keyed
+```
+
+The full eight-item model was complemented by a direct-item-only sensitivity model using the five direct psychological-depth items.
+
+```{r}
+#| label: cfa-fit-table
+fit_keep <- c("chisq", "df", "pvalue", "cfi", "tli", "rmsea", "srmr", "srmr_within", "srmr_between", "aic", "bic")
+
+cfa_fit_table <- bind_rows(
+  cfa_fit_full |> mutate(Model = "Full 8-item model"),
+  cfa_fit_direct |> mutate(Model = "Direct 5-item model")
+) |>
+  filter(measure %in% fit_keep) |>
+  mutate(
+    Measure = recode(
+      measure,
+      chisq = "Chi-square",
+      df = "df",
+      pvalue = "p value",
+      cfi = "CFI",
+      tli = "TLI",
+      rmsea = "RMSEA",
+      srmr = "SRMR",
+      srmr_within = "SRMR within",
+      srmr_between = "SRMR between",
+      aic = "AIC",
+      bic = "BIC"
+    ),
+    Value = case_when(
+      measure == "chisq" ~ fmt_num(value, digits = 2),
+      measure == "df" ~ fmt_df(value),
+      measure == "pvalue" ~ fmt_p(value),
+      TRUE ~ fmt_num(value, digits = 3)
+    )
+  ) |>
+  select(Model, Measure, Value) |>
+  tidyr::pivot_wider(names_from = Measure, values_from = Value)
+
+knitr::kable(cfa_fit_table, caption = "Multilevel CFA fit measures.")
+```
+
+```{r}
+#| label: direct-cfa-loadings-table
+cfa_loadings_direct |>
+  filter(op == "=~") |>
+  transmute(
+    Level = lhs,
+    Indicator = pretty_item(rhs),
+    `Standardized loading` = round(est.std, 3),
+    SE = round(se, 3),
+    `p value` = scales::pvalue(pvalue)
+  ) |>
+  knitr::kable(caption = "Direct-item multilevel CFA standardized loadings.")
+```
+
+```{r}
+#| label: cfa-icc-table
+cfa_icc |>
+  transmute(
+    Indicator = pretty_item(indicator),
+    ICC = round(icc, 3)
+  ) |>
+  knitr::kable(caption = "Indicator intraclass correlations by word cluster.")
+```
+
+The reliability estimates were strong, but the full eight-item single-factor CFA was not uniformly clean. The direct-item-only CFA fit was better, especially for within-cluster SRMR. This pattern is consistent with a coherent depth-oriented semantic battery, while also suggesting that reverse-keyed surface-level items may add method variance.
+
+## Interpretation For Manuscript Use
+
+The most defensible manuscript use is as a post hoc semantic stimulus audit:
+
+> As a post hoc stimulus audit, six local language models rated each target and comparison word on blinded semantic items indexing psychological depth, inwardness, reflection, and abstraction. Mixed-effects models showed that target words were consistently rated as more psychologically deep than comparison words, supporting the intended semantic contrast of the stimulus sets.
+
+This should be described as stimulus-level semantic evidence. It supports the semantic direction of the stimulus manipulation under local LLM judgments.
+
+## Package Versions And References
+
+```{r}
+#| label: package-versions
+packages_used <- c(
+  "afex", "dplyr", "emmeans", "ggplot2", "knitr",
+  "lavaan", "lme4", "pbkrtest", "psych", "readr", "scales",
+  "stringr", "tidyr"
+)
+
+version_table <- tibble::tibble(
+  Package = packages_used,
+  Version = vapply(packages_used, function(pkg) {
+    as.character(utils::packageVersion(pkg))
+  }, character(1))
+)
+
+knitr::kable(
+  version_table,
+  caption = paste("R version:", R.version.string)
+)
+```
+
+Key package references:
+
+- R Core Team. (2025). *R: A language and environment for statistical computing*. R Foundation for Statistical Computing.
+- Singmann, H., Bolker, B., Westfall, J., Aust, F., & Ben-Shachar, M. S. (2025). *afex: Analysis of factorial experiments*.
+- Lenth, R. V., & Piaskowski, J. (2026). *emmeans: Estimated marginal means, aka least-squares means*.
+- Bates, D., Maechler, M., Bolker, B., & Walker, S. (2015). Fitting linear mixed-effects models using lme4. *Journal of Statistical Software, 67*(1), 1-48.
+- Halekoh, U., & Højsgaard, S. (2014). A Kenward-Roger approximation and parametric bootstrap methods for tests in linear mixed models: The R package pbkrtest. *Journal of Statistical Software, 59*(9), 1-30.
+- Rosseel, Y. (2012). lavaan: An R package for structural equation modeling. *Journal of Statistical Software, 48*(2), 1-36.
+- Revelle, W. (2026). *psych: Procedures for psychological, psychometric, and personality research*. Northwestern University.

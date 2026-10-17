@@ -1,0 +1,83 @@
+MULTI-MODEL LOCAL LLM SEMANTIC AUDIT WITH LME4
+================================================
+
+Fixed-effect p values use Type 3 conditional F-tests with Kenward-Roger approximation via afex/pbkrtest.
+Contrasts, slopes, and confidence intervals use emmeans with Kenward-Roger df.
+
+Input model files:
+[1] "deepseek_r1_14b_word_depth_scores_wide.csv"                       
+[2] "gemma4_e4b_mlx_word_depth_scores_wide.csv"                        
+[3] "gpt_oss_20b_word_depth_scores_wide.csv"                           
+[4] "mistral_small_22b_instruct_2409_q3_k_m_word_depth_scores_wide.csv"
+[5] "phi4_latest_word_depth_scores_wide.csv"                           
+[6] "qwen3_5_9b_mlx_word_depth_scores_wide.csv"                        
+
+Long observations: 696
+Unique words: 116
+Rating models: deepseek-r1:14b, gemma4:e4b-mlx, gpt-oss:20b, mistral-small:22b-instruct-2409-q3_K_M, phi4:latest, qwen3.5:9b-mlx
+
+
+MODEL: reflective_vs_practical_words
+Formula: psychological_depth_composite ~ depth_related_factor + (1 + depth_related_factor || rating_model) + (1 | word)
+Mixed Model Anova Table (Type 3 tests, KR-method)
+
+Model: psychological_depth_composite ~ depth_related_factor + (1 + depth_related_factor || 
+Model:     rating_model) + (1 | word)
+Data: dat
+                     num Df den Df      F    Pr(>F)    
+(Intercept)               1 18.077 129.80 1.103e-09 ***
+depth_related_factor      1 17.477 172.08 1.764e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+MODEL: inner_life_vs_object_words
+Formula: psychological_depth_composite ~ depth_related_factor + (1 + depth_related_factor || rating_model) + (1 | word)
+Mixed Model Anova Table (Type 3 tests, KR-method)
+
+Model: psychological_depth_composite ~ depth_related_factor + (1 + depth_related_factor || 
+Model:     rating_model) + (1 | word)
+Data: dat
+                     num Df den Df       F    Pr(>F)    
+(Intercept)               1 18.421  85.651 2.370e-08 ***
+depth_related_factor      1 16.337 238.581 3.586e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+MODEL: cova_depth_vs_control_words
+Formula: psychological_depth_composite ~ depth_related_factor + (1 + depth_related_factor || rating_model) + (1 | word)
+Mixed Model Anova Table (Type 3 tests, KR-method)
+
+Model: psychological_depth_composite ~ depth_related_factor + (1 + depth_related_factor || 
+Model:     rating_model) + (1 | word)
+Data: dat
+                     num Df den Df      F    Pr(>F)    
+(Intercept)               1 60.196 43.294 1.281e-08 ***
+depth_related_factor      1 59.677 89.553 1.743e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+MODEL: clean_overall_depth_vs_control_words
+Formula: psychological_depth_composite ~ depth_related_factor + (1 + depth_related_factor || rating_model) + (1 | word)
+Mixed Model Anova Table (Type 3 tests, KR-method)
+
+Model: psychological_depth_composite ~ depth_related_factor + (1 + depth_related_factor || 
+Model:     rating_model) + (1 | word)
+Data: dat
+                     num Df den Df      F    Pr(>F)    
+(Intercept)               1 98.495 128.64 < 2.2e-16 ***
+depth_related_factor      1 96.625 275.16 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+MODEL: abstraction_gradient_ordering
+Formula: psychological_depth_composite ~ abstraction_max_level + (1 + abstraction_max_level || rating_model) + (1 | word)
+Mixed Model Anova Table (Type 3 tests, KR-method)
+
+Model: psychological_depth_composite ~ abstraction_max_level + (1 + 
+Model:     abstraction_max_level || rating_model) + (1 | word)
+Data: dat
+                      num Df den Df       F    Pr(>F)    
+(Intercept)                1 74.632  27.272 1.543e-06 ***
+abstraction_max_level      1 72.387 104.511 1.085e-15 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

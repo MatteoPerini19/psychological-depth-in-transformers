@@ -1,0 +1,11 @@
+model_name,model_label,probe_name,stem_condition,readout,peak_relative_depth_boot_mean,peak_relative_depth_ci_low,peak_relative_depth_ci_high
+gpt2,gpt2,reflective_practical,all_stems,tuned_lens,0.3634166666666666,0.08333333333333333,0.8333333333333334
+gpt2,gpt2,self_object,self,tuned_lens,0.5330833333333332,0.5,0.9166666666666666
+gpt2,gpt2,self_object,object,tuned_lens,0.15466666666666667,0.08333333333333333,1.0
+gpt2,gpt2,cova_verb_noun,verb,tuned_lens,0.42016666666666674,0.4166666666666667,0.5
+gpt2,gpt2,cova_verb_noun,noun,tuned_lens,0.8791666666666668,0.8333333333333334,0.9166666666666666
+EleutherAI/pythia-70m-deduped,pythia-70m-deduped,reflective_practical,all_stems,tuned_lens,0.27033333333333326,0.16666666666666666,0.6666666666666666
+EleutherAI/pythia-70m-deduped,pythia-70m-deduped,self_object,self,tuned_lens,0.6666666666666665,0.6666666666666666,0.6666666666666666
+EleutherAI/pythia-70m-deduped,pythia-70m-deduped,self_object,object,tuned_lens,0.5,0.5,0.5
+EleutherAI/pythia-70m-deduped,pythia-70m-deduped,cova_verb_noun,verb,tuned_lens,0.6413333333333333,0.5,0.6666666666666666
+EleutherAI/pythia-70m-deduped,pythia-70m-deduped,cova_verb_noun,noun,tuned_lens,0.6575,0.5,0.6666666666666666

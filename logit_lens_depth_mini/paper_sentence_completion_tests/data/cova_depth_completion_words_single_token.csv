@@ -1,0 +1,110 @@
+word,token_text,token_id,token_ids,is_single_token,word_group,cova_dimension,polarity,lexical_type,syntactic_frame,source_basis,note
+mindless, mindless,46560,46560,true,anti_depth,cognitive_stimulation_reflection,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Opposite categories include mindless/thoughtless.
+silly, silly,14397,14397,true,anti_depth,cognitive_stimulation_reflection,negative_depth,adjective,adjective_after_feels,direct_from_paper,Opposite descriptions include silly.
+thoughtful, thoughtful,22677,22677,true,depth,cognitive_stimulation_reflection,positive_depth,adjective,adjective_after_is,paper_dimension_inferred,Adjectival form of the thinking/reflection dimension.
+reflection, reflection,14580,14580,true,depth,cognitive_stimulation_reflection,positive_depth,noun,noun_after_possessive,direct_from_paper,Reflection is central in Study 3.
+thought, thought,1807,1807,true,depth,cognitive_stimulation_reflection,positive_depth,noun,noun_after_possessive,direct_from_paper,Thinking/thought is central to the qualitative categories.
+ponder, ponder,37375,37375,true,depth,cognitive_stimulation_reflection,positive_depth,verb,verb_after_to,paper_dimension_inferred,Natural completion for cognitive engagement.
+question, question,1808,1808,true,depth,cognitive_stimulation_reflection,positive_depth,verb,verb_after_to,paper_dimension_inferred,Derived from reflection and cognitive engagement.
+reflect, reflect,4079,4079,true,depth,cognitive_stimulation_reflection,positive_depth,verb,verb_after_to,direct_from_paper,Study 3 definition mentions pushing people to reflect.
+think, think,892,892,true,depth,cognitive_stimulation_reflection,positive_depth,verb,verb_after_to,direct_from_paper,Thinking/reflection is a core component in Studies 1-3.
+bland, bland,34377,34377,true,anti_depth,emotional_impact_moved,absence_of_depth,adjective,adjective_after_feels,direct_from_paper,Opposite categories include bland.
+boring, boring,14262,14262,true,anti_depth,emotional_impact_moved,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Opposite categories include boring.
+dull, dull,19222,19222,true,anti_depth,emotional_impact_moved,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Opposite categories include dull.
+flat, flat,6228,6228,true,anti_depth,emotional_impact_moved,absence_of_depth,adjective,adjective_after_feels,direct_from_paper,Opposite categories include flat.
+moved, moved,3888,3888,true,depth,emotional_impact_moved,positive_depth,adjective,adjective_after_feels,direct_from_paper,Being moved is a key emotional correlate.
+touching, touching,15241,15241,true,depth,emotional_impact_moved,positive_depth,adjective,adjective_after_is,direct_from_paper,Moved/touched category.
+awe, awe,25030,25030,true,depth,emotional_impact_moved,positive_depth,noun,noun_after_possessive,direct_from_paper,Awe appears in emotion results and examples.
+emotion, emotion,9942,9942,true,depth,emotional_impact_moved,positive_depth,noun,noun_after_possessive,direct_from_paper,Emotional impact is a core component.
+feel, feel,1254,1254,true,depth,emotional_impact_moved,positive_depth,verb,verb_after_to,direct_from_paper,FEEL is a major qualitative category.
+move, move,1445,1445,true,depth,emotional_impact_moved,positive_depth,verb,verb_after_to,direct_from_paper,Being moved is central to the emotional account.
+touch, touch,3638,3638,true,depth,emotional_impact_moved,positive_depth,verb,verb_after_to,direct_from_paper,Being touched is repeatedly discussed.
+fake, fake,8390,8390,true,anti_depth,epistemic_progress_insight,negative_depth,adjective,adjective_after_feels,direct_from_paper,No epistemic value includes fake.
+false, false,3991,3991,true,anti_depth,epistemic_progress_insight,negative_depth,adjective,adjective_after_is,direct_from_paper,No epistemic value includes false/fake.
+ignorant, ignorant,20109,20109,true,anti_depth,epistemic_progress_insight,negative_depth,adjective,adjective_after_is,direct_from_paper,No epistemic value includes ignorant.
+insightful, insightful,41696,41696,true,depth,epistemic_progress_insight,positive_depth,adjective,adjective_after_is,direct_from_paper,Epistemic values category includes insight.
+insight, insight,11281,11281,true,depth,epistemic_progress_insight,positive_depth,noun,noun_after_possessive,direct_from_paper,Study 3 includes new insight and understanding.
+understanding, understanding,4547,4547,true,depth,epistemic_progress_insight,positive_depth,noun,noun_after_possessive,direct_from_paper,Central epistemic component.
+wisdom, wisdom,11501,11501,true,depth,epistemic_progress_insight,positive_depth,noun,noun_after_possessive,direct_from_paper,Epistemic values category includes wisdom.
+discover, discover,7073,7073,true,depth,epistemic_progress_insight,positive_depth,verb,verb_after_to,direct_from_paper,Hidden and inquiry definitions include discovery.
+learn, learn,2193,2193,true,depth,epistemic_progress_insight,positive_depth,verb,verb_after_to,paper_dimension_inferred,Derived from teaching/new understanding.
+realize, realize,6537,6537,true,depth,epistemic_progress_insight,positive_depth,verb,verb_after_to,direct_from_paper,Tables mention realization as epistemic value.
+understand, understand,1833,1833,true,depth,epistemic_progress_insight,positive_depth,verb,verb_after_to,direct_from_paper,Understanding and insight are central in Study 3 and conclusion.
+explicit, explicit,7952,7952,true,anti_depth,hidden_significance,absence_of_depth,adjective,adjective_after_is,direct_from_paper,No hidden meaning includes explicit.
+obvious, obvious,3489,3489,true,anti_depth,hidden_significance,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Opposite categories include obvious.
+hidden, hidden,7104,7104,true,depth,hidden_significance,positive_depth,adjective,adjective_after_is,direct_from_paper,HIDDEN is a Study 1/2 category.
+secret, secret,3200,3200,true,depth,hidden_significance,positive_depth,noun,noun_after_possessive,paper_dimension_inferred,Plausible hidden-significance noun.
+significance, significance,12085,12085,true,depth,hidden_significance,positive_depth,noun,noun_after_possessive,direct_from_paper,Study 3 mentions hidden meaning and significance.
+decode, decode,36899,36899,true,depth,hidden_significance,positive_depth,verb,verb_after_to,direct_from_paper,Study 2 example uses deciphering/reading a code.
+interpret, interpret,6179,6179,true,depth,hidden_significance,positive_depth,verb,verb_after_to,direct_from_paper,Meaning/signification/interpretation category.
+reveal, reveal,7766,7766,true,depth,hidden_significance,positive_depth,verb,verb_after_to,paper_dimension_inferred,Derived from hidden meaning/significance becoming apparent.
+uncover, uncover,23658,23658,true,depth,hidden_significance,positive_depth,verb,verb_after_to,paper_dimension_inferred,Derived from hidden-under-surface category.
+straightforward, straightforward,15836,15836,true,surface,hidden_significance,absence_of_depth,adjective,adjective_after_is,direct_from_paper,No hidden meaning includes straightforward.
+irrelevant, irrelevant,18046,18046,true,anti_depth,important_human_condition,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Opposite categories include irrelevant.
+mundane, mundane,30741,30741,true,anti_depth,important_human_condition,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Opposite categories include mundane.
+trivial, trivial,20861,20861,true,anti_depth,important_human_condition,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Opposite categories include trivial.
+important, important,1593,1593,true,depth,important_human_condition,positive_depth,adjective,adjective_after_is,direct_from_paper,Important subject matter is a core component.
+existence, existence,6224,6224,true,depth,important_human_condition,positive_depth,noun,noun_after_possessive,direct_from_paper,Examples and big-topic definitions include existence.
+humanity, humanity,9265,9265,true,depth,important_human_condition,positive_depth,noun,noun_after_possessive,direct_from_paper,Big-topic category includes humanity/human condition.
+life, life,1204,1204,true,depth,important_human_condition,positive_depth,noun,noun_after_possessive,direct_from_paper,Study 3 explicitly mentions human life.
+mortality, mortality,12430,12430,true,depth,important_human_condition,positive_depth,noun,noun_after_possessive,paper_dimension_inferred,A plausible human-condition topic.
+exist, exist,2152,2152,true,depth,important_human_condition,positive_depth,verb,verb_after_to,paper_dimension_inferred,Derived from human condition/existence themes.
+live, live,2107,2107,true,depth,important_human_condition,positive_depth,verb,verb_after_to,paper_dimension_inferred,Derived from human life and human condition.
+matter, matter,2300,2300,true,depth,important_human_condition,positive_depth,verb,verb_after_to,direct_from_paper,The paper stresses what matters and important subject matters.
+ordinary, ordinary,8850,8850,true,surface,important_human_condition,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Opposite categories include ordinary.
+empty, empty,6565,6565,true,anti_depth,meaning_message,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Tables define the absence of depth as empty or lacking message.
+hollow, hollow,20596,20596,true,anti_depth,meaning_message,absence_of_depth,adjective,adjective_after_feels,direct_from_paper,Used in opposite/absence of meaning descriptions.
+meaningless, meaningless,24513,24513,true,anti_depth,meaning_message,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Explicit absence of meaning contrast.
+pointless, pointless,27158,27158,true,anti_depth,meaning_message,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Opposite-of-depth categories include meaningless/pointless.
+meaningful, meaningful,11570,11570,true,depth,meaning_message,positive_depth,adjective,adjective_after_is,direct_from_paper,Cova et al. connect depth with meaningfulness and meaning.
+meaning, meaning,3616,3616,true,depth,meaning_message,positive_depth,noun,noun_after_possessive,direct_from_paper,"Study 1, Study 2, and Study 3 repeatedly identify meaning."
+message, message,3275,3275,true,depth,meaning_message,positive_depth,noun,noun_after_possessive,direct_from_paper,Table definitions and Study 3 use message as central to depth.
+purpose, purpose,4007,4007,true,depth,meaning_message,positive_depth,noun,noun_after_possessive,direct_from_paper,Opposite table mentions lack of purpose as absence of depth.
+communicate, communicate,10996,10996,true,depth,meaning_message,positive_depth,verb,verb_after_to,direct_from_paper,Based on the paper's message-to-convey formulation.
+mean, mean,1612,1612,true,depth,meaning_message,positive_depth,verb,verb_after_to,direct_from_paper,Cova et al. identify meaning/message as a core component of depth and profundity.
+signify, signify,44078,44078,true,depth,meaning_message,positive_depth,verb,verb_after_to,paper_dimension_inferred,Verb form of signification/meaning.
+fleeting, fleeting,42738,42738,true,anti_depth,motivational_change_transformation,absence_of_depth,adjective,adjective_after_feels,direct_from_paper,No impact category includes fleeting/ephemeral.
+unchanged, unchanged,21588,21588,true,anti_depth,motivational_change_transformation,absence_of_depth,adjective,adjective_after_is,constructed_opposite,Constructed opposite of change/transformation.
+weak, weak,4939,4939,true,anti_depth,motivational_change_transformation,absence_of_depth,adjective,adjective_after_is,direct_from_paper,No impact category includes weak/small.
+change, change,1487,1487,true,depth,motivational_change_transformation,positive_depth,noun,noun_after_possessive,direct_from_paper,Change is central to motivational impact.
+transformation, transformation,13389,13389,true,depth,motivational_change_transformation,positive_depth,noun,noun_after_possessive,direct_from_paper,Cova et al. discuss transformation.
+change, change,1487,1487,true,depth,motivational_change_transformation,positive_depth,verb,verb_after_to,direct_from_paper,CHANGE is a qualitative category and Study 3 feature.
+grow, grow,1663,1663,true,depth,motivational_change_transformation,positive_depth,verb,verb_after_to,paper_dimension_inferred,Plausible positive change completion.
+reconsider, reconsider,26540,26540,true,depth,motivational_change_transformation,positive_depth,verb,verb_after_to,paper_dimension_inferred,Derived from changing beliefs/priorities.
+transform, transform,6121,6121,true,depth,motivational_change_transformation,positive_depth,verb,verb_after_to,direct_from_paper,Tables mention transformation.
+disposable, disposable,32445,32445,true,anti_depth,personal_relevance_values_identity,absence_of_depth,adjective,adjective_after_is,direct_from_paper,No value category includes disposable.
+intimate, intimate,16584,16584,true,depth,personal_relevance_values_identity,positive_depth,adjective,adjective_after_is,direct_from_paper,Personal category mentions private/intimate topics.
+personal, personal,2614,2614,true,depth,personal_relevance_values_identity,positive_depth,adjective,adjective_after_is,direct_from_paper,PERSONAL is a qualitative category.
+ideals, ideals,22247,22247,true,depth,personal_relevance_values_identity,positive_depth,noun,noun_after_possessive,direct_from_paper,Study 3 dimension.
+identity, identity,5369,5369,true,depth,personal_relevance_values_identity,positive_depth,noun,noun_after_possessive,direct_from_paper,PERSONAL category mentions identity.
+values, values,3815,3815,true,depth,personal_relevance_values_identity,positive_depth,noun,noun_after_possessive,direct_from_paper,"Study 3 mentions life goals, values, and ideals."
+belong, belong,5594,5594,true,depth,personal_relevance_values_identity,positive_depth,verb,verb_after_to,paper_dimension_inferred,Derived from personal connection and values.
+matter, matter,2300,2300,true,depth,personal_relevance_values_identity,positive_depth,verb,verb_after_to,direct_from_paper,Personal matters and what matters in life.
+value, value,1988,1988,true,depth,personal_relevance_values_identity,positive_depth,verb,verb_after_to,paper_dimension_inferred,Verb related to values and ideals.
+generic, generic,14276,14276,true,surface,personal_relevance_values_identity,absence_of_depth,adjective,adjective_after_is,constructed_opposite,Constructed contrast to personal.
+practical, practical,8472,8472,true,neutral_control,practical_control,practical_control,adjective,adjective_after_is,paper_dimension_inferred,Neutral practical control adjective.
+phone, phone,3072,3072,true,neutral_control,practical_control,practical_control,noun,noun_after_possessive,paper_dimension_inferred,Object/logistic control noun.
+room, room,2119,2119,true,neutral_control,practical_control,practical_control,noun,noun_after_possessive,paper_dimension_inferred,Concrete object/location control noun.
+schedule, schedule,7269,7269,true,neutral_control,practical_control,practical_control,noun,noun_after_possessive,paper_dimension_inferred,Logistic control noun.
+buy, buy,2822,2822,true,neutral_control,practical_control,practical_control,verb,verb_after_to,paper_dimension_inferred,"Control action from prior minimal-stem probes, not a Cova depth dimension."
+call, call,869,869,true,neutral_control,practical_control,practical_control,verb,verb_after_to,paper_dimension_inferred,Practical control completion.
+check, check,2198,2198,true,neutral_control,practical_control,practical_control,verb,verb_after_to,paper_dimension_inferred,Practical control completion.
+clean, clean,3424,3424,true,neutral_control,practical_control,practical_control,verb,verb_after_to,paper_dimension_inferred,Practical control completion.
+order, order,1502,1502,true,neutral_control,practical_control,practical_control,verb,verb_after_to,paper_dimension_inferred,Practical control completion.
+routine, routine,8027,8027,true,surface,practical_control,absence_of_depth,adjective,adjective_after_is,paper_dimension_inferred,Ordinary/routine control adjective.
+routine, routine,8027,8027,true,surface,practical_control,absence_of_depth,noun,noun_after_possessive,paper_dimension_inferred,Ordinary practical control with surface valence.
+simple, simple,2829,2829,true,anti_depth,richness_layered_content,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Opposite category includes simple.
+thin, thin,7888,7888,true,anti_depth,richness_layered_content,absence_of_depth,adjective,adjective_after_is,constructed_opposite,Constructed contrast to thick/rich.
+complex, complex,3716,3716,true,depth,richness_layered_content,positive_depth,adjective,adjective_after_is,direct_from_paper,"Complexity is included only in the Cova sense of richness/layers, not mere difficulty."
+layered, layered,37748,37748,true,depth,richness_layered_content,positive_depth,adjective,adjective_after_is,paper_dimension_inferred,Adjectival form of layers/richness.
+rich, rich,5527,5527,true,depth,richness_layered_content,positive_depth,adjective,adjective_after_is,direct_from_paper,Richness category.
+complexity, complexity,13357,13357,true,depth,richness_layered_content,positive_depth,noun,noun_after_possessive,direct_from_paper,Complexity/richness distinction is discussed.
+layers, layers,11685,11685,true,depth,richness_layered_content,positive_depth,noun,noun_after_possessive,direct_from_paper,Tables mention layers of meaning.
+richness, richness,46792,46792,true,depth,richness_layered_content,positive_depth,noun,noun_after_possessive,direct_from_paper,RICHNESS is a Study 2 category.
+explore, explore,7301,7301,true,depth,richness_layered_content,positive_depth,verb,verb_after_to,paper_dimension_inferred,Derived from many facets and prolonged engagement.
+layer, layer,7679,7679,true,depth,richness_layered_content,positive_depth,verb,verb_after_to,paper_dimension_inferred,Verb form of layeredness.
+basic, basic,4096,4096,true,surface,richness_layered_content,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Opposite category includes basic.
+frivolous, frivolous,48461,48461,true,anti_depth,surface_level_absence,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Study 2 SHALLOW category includes frivolous.
+shallow, shallow,19337,19337,true,anti_depth,surface_level_absence,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Study 1 and Study 2 opposite categories identify shallow as the main antonym of depth.
+superficial, superficial,31194,31194,true,anti_depth,surface_level_absence,absence_of_depth,adjective,adjective_after_is,direct_from_paper,Study 2 SHALLOW category includes superficial and surface-level.
+surface, surface,4417,4417,true,surface,surface_level_absence,absence_of_depth,noun,noun_after_possessive,direct_from_paper,Study 2 SHALLOW category includes surface-level.

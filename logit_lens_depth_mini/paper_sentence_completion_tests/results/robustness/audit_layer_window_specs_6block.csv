@@ -1,0 +1,3 @@
+n_transformer_layers,middle_window,late_window,middle_center_relative,late_center_relative
+6,1 2,4 5,0.25,0.75
+6,2 3,4 5,0.4166666666666667,0.75
